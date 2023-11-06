@@ -1,0 +1,207 @@
+.tg-nav {
+  // padding: 40px 2.5%;
+  padding: 40px 0;
+  background-color: transparent;
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: auto;
+  z-index: 9999;
+}
+
+.nav-logo,
+.burger-box {
+  z-index: 5;
+}
+
+.nav-content {
+  position: relative;
+  pointer-events: auto;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tg-menu-item {
+  .menu-item-link {
+    position: relative;
+    color: $grey;
+    font-weight: 600;
+    font-size: 6vw;
+    margin-bottom: 20px;
+    text-decoration: none;
+    display: inline-block;
+    @include css3-prefix(transition, color 0.3s ease);
+
+    &::before {
+      position: absolute;
+      width: 0;
+      height: 4px;
+      top: 55%;
+      transform: translateY(-50%);
+      background-color: $tg-primary;
+      @include css3-prefix(transition, width 0.3s ease);
+    }
+
+    &:hover {
+      color: $white;
+      &::before {
+        width: 110%;
+      }
+    }
+
+    @include breakpoint(sm) {
+      margin-bottom: 5px;
+      font-size: 4vw;
+
+      &::before {
+        content: "";
+        height: 20px;
+      }
+    }
+  }
+}
+// =================== start of burger menu design ===================
+.burger-box {
+  cursor: pointer;
+}
+
+.burger-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+  background-color: $black;
+  border-radius: 50%;
+}
+
+.burger-inner {
+  .top-bun,
+  .patty,
+  .bottom-bun {
+    background-color: $tg-primary;
+    position: absolute;
+    display: block;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    height: 2px;
+    content: "";
+    width: 25px;
+
+    transition: transform 250ms cubic-bezier(0.2, 0.6, 0.3, 1),
+      width 250ms cubic-bezier(0.2, 0.6, 0.3, 1);
+  }
+
+  &.nav-menu-icon-doubleLineHamburger {
+    .top-bun {
+      @include css3-prefix(transform, translateY(-5.5px));
+    }
+
+    .patty {
+      transform: scale(0);
+    }
+
+    .bottom-bun {
+      @include css3-prefix(transform, translateY(5.5px));
+    }
+  }
+}
+// =================== end of burger menu design ===================
+
+// =================== start of navbar contents ===================
+// update the burger menu to cross
+.nav-items {
+  &.active {
+    .nav-menu-icon-doubleLineHamburger {
+      .top-bun {
+        @include css3-prefix(transform, rotate(44deg));
+      }
+      .bottom-bun {
+        @include css3-prefix(transform, rotate(-44deg));
+      }
+    }
+
+    // .nav-menu-overlay {
+    //   opacity: 1;
+    //   visibility: visible;
+    // }
+    
+    .nav-menu {
+      &-overlay{
+        opacity: 1;
+        visibility: visible;
+      }
+
+      &-bg-overlay {
+        width: 310vw;
+        height: 310vh;
+      }
+    }
+  }
+}
+
+.nav-menu {
+  &-overlay, &-content {
+    display: flex;
+    opacity: 0;
+    visibility: hidden;
+    position: relative;
+    @include css3-prefix(transition, all 0.3s ease);
+  }
+
+  &-overlay {
+    width: 100%;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    padding-top: 10em;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+  }
+
+  &-content {
+    z-index: 2;
+    width: 65%;
+    max-width: 1200px;
+    flex-direction: column;
+    // active
+    &.show{
+      display: flex;
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  // background position
+  &-overlay-bg {
+    width: 45px;
+    height: 45px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    position: absolute;
+    top: -10%;
+    right: -10%;
+    bottom: auto;
+    left: auto;
+  }
+
+  &-bg-overlay {
+    height: 0;
+    width: 0;
+    background-color: $primary-dark;
+    border-radius: 100%;
+    position: absolute;
+    @include css3-prefix(transition, all 0.5s ease);
+  }
+}
+// =================== end of navbar contents ===================

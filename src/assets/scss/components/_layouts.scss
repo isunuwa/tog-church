@@ -1,0 +1,315 @@
+.content-wrapper {
+  padding-top: 6vmax;
+  padding-bottom: 6vmax;
+}
+
+.page-section {
+  min-height: 500px;
+
+  .acc-info {
+    &-title {
+      font-size: 42px;
+    }
+  }
+
+  &.hero-welcome {
+    min-height: 650px;
+  }
+}
+
+.section-heading {
+  font-size: 64px;
+  line-height: 90px;
+  letter-spacing: 3px;
+}
+
+.row-flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.tg-divider {
+  height: 1px;
+  background-color: $grey-light;
+  margin-top: 10px;
+  margin-bottom: 10px;
+
+  &.inner-col {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  &.sep-2 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+    @include breakpoint(md) {
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+  }
+
+  &.sep-3 {
+    margin-top: 15px;
+    margin-bottom: 15px;
+
+    @include breakpoint(md) {
+      margin-top: 30px;
+      margin-bottom: 30px;
+    }
+  }
+
+  &.sep-4 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+    @include breakpoint(md) {
+      margin-top: 40px;
+      margin-bottom: 40px;
+    }
+  }
+
+  &.sep-5 {
+    margin-top: 25px;
+    margin-bottom: 25px;
+
+    @include breakpoint(md) {
+      margin-top: 50px;
+      margin-bottom: 50px;
+    }
+  }
+}
+
+.bg {
+  &-primary-dark {
+    background-color: $primary-dark;
+  }
+}
+
+// =================== start of quote section ===================
+.quote {
+  padding-top: 70px;
+  padding-bottom: 20px;
+
+  @include breakpoint(sm) {
+    padding-top: 20px;
+  }
+}
+
+.quote-content {
+  position: relative;
+
+  &::before,
+  &::after {
+    font-family: "icomoon" !important;
+    display: inline-block;
+    top: -18px;
+    position: absolute;
+    color: $tg-primary;
+    font-size: 36px;
+  }
+
+  &::before {
+    left: 0px;
+    // background-image: url("assets/svg/icons/quote-left.svg");
+    content: "\e906";
+  }
+
+  &::after {
+    right: 0px;
+    // background-image: url("assets/svg/icons/quote-right.svg");
+    content: "\e907";
+  }
+
+  @include breakpoint(sm) {
+    &::before {
+      left: -30px;
+    }
+    &::after {
+      right: -30px;
+    }
+  }
+
+  .quote-text {
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    word-spacing: 2px;
+    padding: 10px 10px 0;
+    @include breakpoint(sm) {
+      font-size: 36px;
+    }
+  }
+
+  .quote-ref {
+    font-size: 14px;
+    font-weight: 200;
+    letter-spacing: 2px;
+  }
+}
+// =================== end of quote section ===================
+
+// =================== start of quote section ===================
+.gallery-stack-wrapper {
+  // &:hover {
+  .stack {
+    &:hover {
+      @include css3-prefix(transform, rotate(5deg));
+
+      .card:before {
+        @include css3-prefix(transform, translateY(-2%) rotate(-4deg));
+      }
+
+      .card:after {
+        @include css3-prefix(transform, translateY(-2%) rotate(-4deg));
+      }
+    }
+  }
+}
+
+.stack {
+  width: 85%;
+  max-width: 400px;
+  margin: 0 auto;
+  position: relative;
+  @include css3-prefix(transition, 0.25s ease);
+
+  @include breakpoint(sm) {
+    width: 75%;
+  }
+
+  @include breakpoint(md) {
+    width: 65%;
+  }
+
+  .stack-link {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+  }
+}
+
+.gallery-card {
+  // aspect-ratio: 3 / 2;
+  border: 4px solid;
+  background-color: $white;
+  position: relative;
+  cursor: pointer;
+  padding: 5% 5% 15% 5%;
+  @include css3-prefix(transition, 0.15s ease);
+
+  &:before,
+  &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    border: 4px solid;
+    background-color: $white;
+    transform-origin: center center;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    @include css3-prefix(transition, 0.15s ease);
+  }
+
+  &:before {
+    @include css3-prefix(transform, translateY(-2%) rotate(-6deg));
+  }
+
+  &:after {
+    @include css3-prefix(transform, translateY(2%) rotate(6deg));
+  }
+
+  .image {
+    width: 100%;
+    // border: 4px solid;
+    background-color: $grey-light;
+    aspect-ratio: 1 / 1;
+    position: relative;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      position: relative;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+  }
+}
+
+.pastor-wrapper {
+  [class*="col-"] {
+    margin-bottom: 5rem;
+  }
+}
+// =================== end of gallery section ===================
+
+// =================== start of typo section ===================
+.typo {
+  &1 {
+    .body-copy {
+      font-weight: 300;
+    }
+  }
+}
+// =================== end of typo section ===================
+
+// =================== start of content block section ===================
+.tg-contentBlock {
+  .rich-text-container {
+    letter-spacing: 0.02em;
+
+    [class*="tag-h"] {
+      margin-bottom: 6px;
+    }
+  }
+}
+
+.page-block {
+  padding: 45px 0;
+}
+// =================== end of content block section ===================
+
+.ps-description {
+  position: relative;
+  margin-top: -50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  @include breakpoint(sm) {
+    margin-top: -200px;
+    flex-direction: row;
+  }
+
+  .ps-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    margin-top: 30px;
+    order: 2;
+
+    @include breakpoint(sm) {
+      margin-top: 150px;
+      order: 1;
+    }
+  }
+
+  .ps-dp {
+    @include breakpoint(sm) {
+      order: 2;
+    }
+
+    img {
+      width: 200px;
+      height: 200px;
+    }
+  }
+}

@@ -1,0 +1,31 @@
+.hero-welcome {
+  padding-top: 200px;
+}
+
+.tg-welcome {
+  h1 {
+    font-weight: 600;
+  }
+}
+
+// start of page accordion title section
+.tg-accordion {
+  .content-wrapper {
+    padding-top: 250px;
+  }
+}
+
+.hero-video {
+  &_item {
+    max-height: 720px;
+  }
+
+  .hero-link-1 {
+    margin: 21px auto -35px;
+  }
+}
+
+.whoarewe-info {
+  font-size: 24px;
+  font-weight: 200;
+}
